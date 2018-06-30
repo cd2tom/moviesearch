@@ -1,20 +1,8 @@
 {
   "name": "MovieSearch",
   "version": "1.0.0",
-  "author": "tom finney <tom.finney25@googlemail.com>",
-  "license": "MIT",
   "main": "index.js",
-  "scripts": {
-    "start": "parcel ./src/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "dependencies": {
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1"
-  },
-  "devDependencies": {
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1"
-  }
+  "repository": "https://github.com/t0m201/MovieSearch.git",
+  "author": "tom.finney25@googlemail.com <tom.finney25@googlemail.com>",
+  "license": "MIT"
 }
