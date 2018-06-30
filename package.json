@@ -4,5 +4,13 @@
   "main": "index.js",
   "repository": "https://github.com/t0m201/MovieSearch.git",
   "author": "tom.finney25@googlemail.com <tom.finney25@googlemail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel src/index.html"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.9.3",
+    "react": "^16.4.1",
+    "typescript": "^2.9.2"
+  }
 }
