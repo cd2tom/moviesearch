@@ -1,0 +1,7 @@
+{
+  "name": "MovieSearch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "tom finney <tom.finney25@googlemail.com>",
+  "license": "MIT"
+}
