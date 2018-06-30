@@ -5,8 +5,9 @@ export default `
   }
 
   .main {
+    background-color: #333;
     padding: 32px;
-    heigt: 100vh;
+    height: 100vh;
   }
 
 `
