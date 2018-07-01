@@ -1,6 +1,7 @@
 import * as React from "react";
 import { observer } from "mobx-react"
 import query from "../stores/query"
+import Loader from "./Loader"
 
 class Home extends React.Component<any> {
   render() {
@@ -13,6 +14,7 @@ class Home extends React.Component<any> {
           <input type="text" onChange={query.setSearch} />
           <button onClick={query.startSearch}>Search</button>
         </div>
+        { query.loading ? <Loader /> : undefined}
         {
           query.results.map(result => (
             <p>
