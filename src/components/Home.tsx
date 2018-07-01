@@ -13,6 +13,13 @@ class Home extends React.Component<any> {
           <input type="text" onChange={query.setSearch} />
           <button onClick={query.startSearch}>Search</button>
         </div>
+        {
+          query.results.map(result => (
+            <p>
+              {result.title}
+            </p>
+          ))
+        }
       </div>
     )
   }
