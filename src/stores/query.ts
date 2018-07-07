@@ -32,6 +32,11 @@ class Query {
     this.results = []
   }
 
+  generateBgUrl = (posterPath:string) => {
+    const base = `https://image.tmdb.org/t/p/original`
+    return `${base}${posterPath}`
+  }
+
 }
 
 async function fetchSearch(search:string, results:any[], page=1) {

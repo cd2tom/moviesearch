@@ -18,10 +18,19 @@ class Home extends React.Component<any> {
         </div>
         { query.loading ? <Loader /> : undefined}
         {
-          query.results.map(result => {
+          query.results.map((result:any, i:number) => {
             return(
-              <article>
-                <p>
+              <article style={{ display: `flex`, alignItems: `center`, }}>
+                <div
+                  style={{
+                    backgroundImage: `url('${query.generateBgUrl(result.poster_path)}')`,
+                    backgroundSize: `cover`,
+                    height: 150,
+                    width: 100,
+                    marginBottom: i === query.results.length-1 ? 0 : 16
+                  }}
+                />
+                <p style={{ flex: 1, marginLeft: 16 }}>
                   <b>{result.title}</b>
                   <br/>
                   {result.overview}
