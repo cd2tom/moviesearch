@@ -43,7 +43,7 @@ async function fetchSearch(search:string, results:any[], page=1) {
   results.push(...parsed.results)
 
   if (parsed.total_pages !== page){
-    const extraResults = await fetchSearch(search, results, page+1)
+    await fetchSearch(search, results, page+1)
   }
 }
 

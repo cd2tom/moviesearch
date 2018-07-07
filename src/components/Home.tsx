@@ -16,11 +16,17 @@ class Home extends React.Component<any> {
         </div>
         { query.loading ? <Loader /> : undefined}
         {
-          query.results.map(result => (
-            <p>
-              {result.title}
-            </p>
-          ))
+          query.results.map(result => {
+            return(
+              <article>
+                <p>
+                  <b>{result.title}</b>
+                  <br/>
+                  {result.overview}
+                </p>
+              </article>
+            )
+          })
         }
       </div>
     )
