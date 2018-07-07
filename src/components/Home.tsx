@@ -11,8 +11,10 @@ class Home extends React.Component<any> {
           Movie Searcher
         </h1>
         <div style={{ textAlign: 'center' }}>
-          <input type="text" onChange={query.setSearch} />
-          <button onClick={query.startSearch}>Search</button>
+          <form onSubmit={query.startSearch}>
+            <input type="text" onChange={query.setSearch} />
+            <button>Search</button>
+          </form>
         </div>
         { query.loading ? <Loader /> : undefined}
         {

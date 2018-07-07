@@ -17,7 +17,8 @@ class Query {
   }
 
   @action.bound
-  async startSearch() {
+  async startSearch(e) {
+    e.preventDefault()
     this.resetSearch()
     this.loading = true
     const response = await fetchSearch(this.search, this.results)
