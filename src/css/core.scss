@@ -3,6 +3,7 @@ $colorBorder: #f3f3f3;
 $colorGrey: rgb(164, 163, 170);
 $colorBlue: #3498db;
 $colorSkyBlue: #c9e9ff;
+$colorTranslucentBlack: rgba(0, 0, 0, 0.42);
 $lineHeight: 1.6;
 $paddingBase: 32px;
 $paddingSmall: 16px;
@@ -39,6 +40,8 @@ button,
   font-weight: bold;
   cursor: pointer;
   border-color: $colorGrey;
+  display: inline-block;
+  text-align: center;
 
   &:hover {
     border-bottom-color: $colorBlue;
@@ -71,9 +74,16 @@ button,
   }
 }
 
+.teasers {
+  text-align: center;
+  padding: $paddingBase;
+}
+
 .teaser {
-  display: flex;
-  align-items: center;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
 
   & + .teaser {
     margin-top: $paddingSmall;
@@ -81,14 +91,34 @@ button,
 
   &__img {
     background-size: cover;
-    height: 150px;
-    width: 100px;
+    height: 300px;
+    width: 200px;
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: $transitionSpeed;
+    transform: translateY(16px);
+  }
+
+  &:hover &__content {
+    opacity: 1;
+    transform: translateY(0px);
   }
 
   &__body {
-    margin: 0 $paddingBase;
+    background-color: $colorTranslucentBlack;
     color: white;
-    flex: 1;
     line-height: $lineHeight;
+    margin: 0;
+    padding: $paddingSmall;
+  }
+
+  .btn {
+    width: 100%;
   }
 }

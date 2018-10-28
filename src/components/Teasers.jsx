@@ -2,7 +2,7 @@ import React from "react";
 import { generateBgUrl } from "../utils/movieDB";
 
 const Teasers = ({ results }) => (
-  <div style={{ padding: 32 }}>
+  <div className="teasers">
     {results.map((result, i) => {
       return (
         <article key={`${i}${result.title}`} className="teaser">
@@ -12,12 +12,15 @@ const Teasers = ({ results }) => (
             }}
             className="teaser__img"
           />
-          <p className="teaser__body">
-            <b>{result.title}</b>
-            <br />
-            {result.overview}
-          </p>
-          <div className="btn">View More</div>
+          <div className="teaser__content">
+            <p className="teaser__body">
+              <b>{result.title}</b>
+              <br />
+              {result.release_date}
+              <br />
+            </p>
+            <div className="btn">View More</div>
+          </div>
         </article>
       );
     })}
