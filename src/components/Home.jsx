@@ -22,9 +22,6 @@ const Home = () => {
 
   return (
     <div>
-      <h1 style={{ color: "white", textAlign: "center", marginTop: 0 }}>
-        Movie Searcher
-      </h1>
       <div style={{ textAlign: "center" }}>
         <form onSubmit={handleSubmitQuery}>
           <input

@@ -16,7 +16,7 @@ $transitionSpeed: 0.3s;
 }
 
 body {
-  background-color: #333;
+  background-color: #222;
 }
 
 form {
@@ -89,10 +89,8 @@ button,
   position: relative;
   overflow: hidden;
   text-align: left;
-
-  & + .teaser {
-    margin-top: $paddingSmall;
-  }
+  vertical-align: top;
+  margin-bottom: $paddingSmall;
 
   &__img {
     background-size: cover;
