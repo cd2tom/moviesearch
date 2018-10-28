@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { fetchSearch } from "../utils/movieDB";
 import { Loader } from "./Loader";
 import { Teasers } from "./Teasers";
@@ -14,6 +14,14 @@ const Home = () => {
     results: [],
     pageNumber: 1,
     totalPages: 1
+  });
+
+  useEffect(() => {
+    let title = "tom's mobie search";
+    if (queryValue) {
+      title += ` | ${queryValue}`;
+    }
+    document.title = title;
   });
 
   function handleSetQueryValue(e) {

@@ -25275,6 +25275,16 @@ var Home = function Home() {
       requestData = _useState10[0],
       setResults = _useState10[1];
 
+  (0, _react.useEffect)(function () {
+    var title = "tom's mobie search";
+
+    if (queryValue) {
+      title += " | ".concat(queryValue);
+    }
+
+    document.title = title;
+  });
+
   function handleSetQueryValue(e) {
     setQueryValue(e.target.value);
   }
@@ -25514,7 +25524,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62723" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50755" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
