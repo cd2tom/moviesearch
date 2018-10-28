@@ -1,5 +1,5 @@
 import React from "react";
-import query from "../stores/query";
+import { generateBgUrl } from "../utils/movieDB";
 
 const Teasers = ({ results }) => (
   <div style={{ padding: 32 }}>
@@ -15,9 +15,7 @@ const Teasers = ({ results }) => (
         >
           <div
             style={{
-              backgroundImage: `url('${query.generateBgUrl(
-                result.poster_path
-              )}')`,
+              backgroundImage: `url('${generateBgUrl(result.poster_path)}')`,
               backgroundSize: `cover`,
               height: 150,
               width: 100

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import query from "../stores/query";
+import { startSearch } from "../utils/movieDB";
 import { Loader } from "./Loader";
 import { Teasers } from "./Teasers";
 
 const Home = () => {
   const [queryValue, setQueryValue] = useState("");
+  const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
 
   function handleSetQueryValue(e) {
@@ -13,7 +14,9 @@ const Home = () => {
 
   async function handleSubmitQuery(e) {
     e.preventDefault();
-    const fetchedResults = await query.startSearch(queryValue);
+    setLoading(true);
+    const fetchedResults = await startSearch(queryValue);
+    setLoading(false);
     setResults(fetchedResults);
   }
 
@@ -32,7 +35,7 @@ const Home = () => {
           <button>Search</button>
         </form>
       </div>
-      {query.loading ? <Loader /> : undefined}
+      {loading ? <Loader /> : undefined}
       <Teasers results={results} />
     </div>
   );
