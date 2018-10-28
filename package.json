@@ -5,7 +5,9 @@
   "author": "tom.finney25@googlemail.com <tom.finney25@googlemail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "parcel src/index.html"
+    "dev": "parcel src/index.html",
+    "start": "serve",
+    "build": "parcel build src/index.html"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
@@ -24,6 +26,7 @@
     "global": "^4.3.2",
     "mobx": "^5.5.2",
     "mobx-react": "^5.3.6",
-    "sass": "^1.14.3"
+    "sass": "^1.14.3",
+    "serve": "^10.0.2"
   }
 }
