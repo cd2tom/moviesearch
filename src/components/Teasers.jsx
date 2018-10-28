@@ -5,27 +5,19 @@ const Teasers = ({ results }) => (
   <div style={{ padding: 32 }}>
     {results.map((result, i) => {
       return (
-        <article
-          key={`${i}${result.title}`}
-          style={{
-            display: `flex`,
-            alignItems: `center`,
-            marginBottom: i === results.length - 1 ? 0 : 16
-          }}
-        >
+        <article key={`${i}${result.title}`} className="teaser">
           <div
             style={{
-              backgroundImage: `url('${generateBgUrl(result.poster_path)}')`,
-              backgroundSize: `cover`,
-              height: 150,
-              width: 100
+              backgroundImage: `url('${generateBgUrl(result.poster_path)}')`
             }}
+            className="teaser__img"
           />
-          <p style={{ flex: 1, marginLeft: 16 }}>
+          <p className="teaser__body">
             <b>{result.title}</b>
             <br />
             {result.overview}
           </p>
+          <div className="btn">View More</div>
         </article>
       );
     })}
