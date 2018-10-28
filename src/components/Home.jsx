@@ -20,21 +20,18 @@ const Home = () => {
 
   function handleSubmitQuery(e) {
     e.preventDefault();
+    setRequestMade(false);
     submitQuery(requestData.pageNumber);
   }
 
   function handlePageClick(pageNumber) {
-    // window.scrollTo({
-    //   top: 0,
-    //   behavior: "smooth"
-    // });
     submitQuery(pageNumber);
   }
 
   async function submitQuery(pageNumber) {
     setLoading(true);
-    setRequestMade(true);
     const fetchedResults = await fetchSearch(queryValue, pageNumber);
+    setRequestMade(true);
     setLoading(false);
     setResults(fetchedResults);
   }
@@ -53,13 +50,14 @@ const Home = () => {
       </div>
       {loading && <Loader />}
       {!loading && <Teasers results={requestData.results} />}
-      {requestMade && (
-        <Pagination
-          currentPageNumber={requestData.pageNumber}
-          totalPages={requestData.totalPages}
-          handlePageClick={handlePageClick}
-        />
-      )}
+      {requestMade &&
+        requestData.results.length > 0 && (
+          <Pagination
+            currentPageNumber={requestData.pageNumber}
+            totalPages={requestData.totalPages}
+            handlePageClick={handlePageClick}
+          />
+        )}
     </div>
   );
 };

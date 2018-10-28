@@ -9,6 +9,7 @@ $lineHeight: 1.6;
 $paddingBase: 32px;
 $paddingSmall: 16px;
 $paddingXSmall: 8px;
+$siteWidth: 1000px;
 $transitionSpeed: 0.3s;
 
 * {
@@ -57,16 +58,16 @@ button,
 .main {
   padding: $paddingBase;
   height: 100vh;
-  max-width: 1000px;
+  max-width: $siteWidth;
   margin: 0 auto;
 }
 
 .loader {
   border: 4px solid $colorBorder;
-  border-top: 4px solid $colorSkyBlue;
+  border-top: 4px solid $colorBlue;
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
+  width: 50px;
+  height: 50px;
   animation: spin 2s linear infinite;
   margin: $paddingBase auto;
 }
@@ -135,6 +136,7 @@ button,
 .pagination {
   text-align: center;
   padding: 0 $paddingBase $paddingBase;
+  max-width: $siteWidth;
 
   &__link {
     padding: $paddingXSmall;
@@ -142,6 +144,8 @@ button,
     cursor: pointer;
     transition: $transitionSpeed;
     color: white;
+    display: inline-block;
+    vertical-align: top;
   }
 
   &__link--active,
