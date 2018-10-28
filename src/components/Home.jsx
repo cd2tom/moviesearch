@@ -3,10 +3,12 @@ import { fetchSearch } from "../utils/movieDB";
 import { Loader } from "./Loader";
 import { Teasers } from "./Teasers";
 import { Pagination } from "./Pagination";
+import { Modal } from "./Modal";
 
 const Home = () => {
   const [queryValue, setQueryValue] = useState("");
   const [loading, setLoading] = useState(false);
+  const [modalResult, setModalResult] = useState(undefined);
   const [requestMade, setRequestMade] = useState(false);
   const [requestData, setResults] = useState({
     results: [],
@@ -49,7 +51,12 @@ const Home = () => {
         </form>
       </div>
       {loading && <Loader />}
-      {!loading && <Teasers results={requestData.results} />}
+      {!loading && (
+        <Teasers
+          results={requestData.results}
+          setModalResult={setModalResult}
+        />
+      )}
       {requestMade &&
         requestData.results.length > 0 && (
           <Pagination
@@ -58,6 +65,7 @@ const Home = () => {
             handlePageClick={handlePageClick}
           />
         )}
+      <Modal result={modalResult} setModalResult={setModalResult} />
     </div>
   );
 };

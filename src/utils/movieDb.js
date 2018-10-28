@@ -18,3 +18,14 @@ export function generateBgUrl(posterPath) {
   const base = `https://image.tmdb.org/t/p/original`;
   return `${base}${posterPath}`;
 }
+
+export async function getMovie(id) {
+  const path = `${APIPATH}/movie/${id}?api_key=${APIKEY}`;
+  const response = await fetch(path);
+
+  if (response.status !== 200) return false;
+
+  const parsed = await response.json();
+  console.log(parsed);
+  return parsed;
+}

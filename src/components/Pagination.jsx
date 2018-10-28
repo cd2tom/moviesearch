@@ -7,7 +7,7 @@ const Pagination = ({ currentPageNumber, totalPages, handlePageClick }) => (
       .map((_, i) => (
         <span
           key={i}
-          class={`pagination__link ${
+          className={`pagination__link ${
             currentPageNumber === i + 1 ? "pagination__link--active" : undefined
           }`}
           onClick={() => handlePageClick(i + 1)}

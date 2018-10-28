@@ -2,6 +2,8 @@ $borderRadius: 3px;
 $colorBorder: #f3f3f3;
 $colorGrey: rgb(164, 163, 170);
 $colorBlue: #3498db;
+$colorFont: #111;
+$colorFontLight: #444;
 $colorSkyBlue: #c9e9ff;
 $colorTranslucentBlack: rgba(0, 0, 0, 0.42);
 $colorWhite: #fff;
@@ -19,6 +21,7 @@ $transitionSpeed: 0.3s;
 
 body {
   background-color: #222;
+  color: $colorFont;
 }
 
 form {
@@ -153,5 +156,71 @@ button,
     background-color: $colorWhite;
     color: $colorBlue;
     transform: translateY(-1px);
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $colorTranslucentBlack;
+  opacity: 0;
+  pointer-events: none;
+  transition: $transitionSpeed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__content {
+    background-color: $colorWhite;
+    border-radius: $borderRadius;
+    padding: $paddingBase;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    opacity: 0;
+    transform: scale(0.66);
+    transition: $transitionSpeed;
+  }
+
+  &--active &__content {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &__img {
+    background-size: cover;
+    height: 300px;
+    width: 200px;
+  }
+
+  &__body {
+    line-height: $lineHeight;
+    max-width: 600px;
+    margin-left: $paddingBase;
+
+    h3 {
+      margin-top: 0;
+    }
+
+    small {
+      color: $colorFontLight;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    right: -16px;
+    top: -16px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
   }
 }
