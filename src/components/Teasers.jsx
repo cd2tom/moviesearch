@@ -16,8 +16,12 @@ const Teasers = ({ results }) => (
             <p className="teaser__body">
               <b>{result.title}</b>
               <br />
-              {result.release_date}
+              <small>{result.release_date}</small>
               <br />
+              <span>
+                {result.vote_average}
+                /10
+              </span>
             </p>
             <div className="btn">View More</div>
           </div>
