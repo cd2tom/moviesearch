@@ -20,6 +20,7 @@
     "@types/react-dom": "^16.0.6",
     "@types/react-router-dom": "^4.2.7",
     "global": "^4.3.2",
+    "mobx-react": "^5.3.6",
     "sass": "^1.14.3"
   }
 }
