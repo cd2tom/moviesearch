@@ -10,7 +10,7 @@
   "devDependencies": {
     "parcel-bundler": "^1.9.3",
     "postcss-modules": "^1.4.1",
-    "react": "^16.7.0-alpha.0",
+    "react": "^0.13.0 || ^0.14.0 || ^15.0.0 || ^16.0.0",
     "react-dom": "^16.7.0-alpha.0",
     "react-router-dom": "^4.3.1",
     "typescript": "^2.9.2"
@@ -20,6 +20,7 @@
     "@types/react-dom": "^16.0.6",
     "@types/react-router-dom": "^4.2.7",
     "global": "^4.3.2",
+    "mobx": "^5.5.2",
     "mobx-react": "^5.3.6",
     "sass": "^1.14.3"
   }
