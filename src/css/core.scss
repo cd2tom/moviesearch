@@ -19,6 +19,10 @@ body {
   background-color: #333;
 }
 
+form {
+  margin: 0;
+}
+
 input,
 button,
 .btn {
@@ -63,6 +67,7 @@ button,
   width: 32px;
   height: 32px;
   animation: spin 2s linear infinite;
+  margin: $paddingBase auto;
 }
 
 @keyframes spin {
@@ -120,5 +125,9 @@ button,
 
   .btn {
     width: 100%;
+
+    &:hover {
+      transform: translateY(0);
+    }
   }
 }
