@@ -5,9 +5,16 @@ import { Teasers } from "./Teasers";
 
 const Home = () => {
   const [queryValue, setQueryValue] = useState("");
+  const [results, setResults] = useState([]);
 
   function handleSetQueryValue(e) {
     setQueryValue(e.target.value);
+  }
+
+  async function handleSubmitQuery(e) {
+    e.preventDefault();
+    const fetchedResults = await query.startSearch(queryValue);
+    setResults(fetchedResults);
   }
 
   return (
@@ -16,7 +23,7 @@ const Home = () => {
         Movie Searcher
       </h1>
       <div style={{ textAlign: "center" }}>
-        <form onSubmit={query.startSearch}>
+        <form onSubmit={handleSubmitQuery}>
           <input
             type="text"
             value={queryValue}
@@ -26,7 +33,7 @@ const Home = () => {
         </form>
       </div>
       {query.loading ? <Loader /> : undefined}
-      <Teasers />
+      <Teasers results={results} />
     </div>
   );
 };

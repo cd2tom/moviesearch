@@ -7,18 +7,13 @@ class Query {
   loading = false;
   results = [];
 
-  setSearch(event) {
-    const value = event.target.value;
-    this.search = value;
-  }
-
-  async startSearch(e) {
-    e.preventDefault();
+  async startSearch(queryValue) {
     this.resetSearch();
     this.loading = true;
-    const response = await fetchSearch(this.search, this.results);
+    const response = await fetchSearch(queryValue, []);
     if (!response) this.errored = true;
     this.loading = false;
+    return response;
   }
 
   resetSearch() {
@@ -32,8 +27,8 @@ class Query {
   };
 }
 
-async function fetchSearch(search, results, page = 1) {
-  const path = `${APIPATH}/search/movie?query=${search}&api_key=${APIKEY}&page=${page}`;
+async function fetchSearch(queryValue, results, page = 1) {
+  const path = `${APIPATH}/search/movie?query=${queryValue}&api_key=${APIKEY}&page=${page}`;
   const response = await fetch(path);
 
   if (response.status !== 200) return false;
@@ -42,8 +37,11 @@ async function fetchSearch(search, results, page = 1) {
   results.push(...parsed.results);
 
   if (parsed.total_pages !== page) {
-    await fetchSearch(search, results, page + 1);
+    const pageResults = await fetchSearch(queryValue, results, page + 1);
+    results.push(...pageResults);
   }
+
+  return results;
 }
 
 const query = new Query();

@@ -1,16 +1,16 @@
 import React from "react";
 import query from "../stores/query";
 
-const Teasers = () => (
+const Teasers = ({ results }) => (
   <div style={{ padding: 32 }}>
-    {query.results.map((result, i) => {
+    {results.map((result, i) => {
       return (
         <article
           key={`${i}${result.title}`}
           style={{
             display: `flex`,
             alignItems: `center`,
-            marginBottom: i === query.results.length - 1 ? 0 : 16
+            marginBottom: i === results.length - 1 ? 0 : 16
           }}
         >
           <div
