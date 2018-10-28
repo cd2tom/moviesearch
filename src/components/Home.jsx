@@ -31,6 +31,8 @@ const Home = () => {
   }
 
   async function submitQuery(pageNumber) {
+    if (!queryValue) return;
+
     setLoading(true);
     const fetchedResults = await fetchSearch(queryValue, pageNumber);
     setRequestMade(true);

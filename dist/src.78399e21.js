@@ -25302,17 +25302,25 @@ var Home = function Home() {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
+              if (queryValue) {
+                _context.next = 2;
+                break;
+              }
+
+              return _context.abrupt("return");
+
+            case 2:
               setLoading(true);
-              _context.next = 3;
+              _context.next = 5;
               return (0, _movieDB.fetchSearch)(queryValue, pageNumber);
 
-            case 3:
+            case 5:
               fetchedResults = _context.sent;
               setRequestMade(true);
               setLoading(false);
               setResults(fetchedResults);
 
-            case 7:
+            case 9:
             case "end":
               return _context.stop();
           }
@@ -25506,7 +25514,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54101" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62723" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
