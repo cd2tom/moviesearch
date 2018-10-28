@@ -1,21 +1,40 @@
 import React, { useState } from "react";
-import { startSearch } from "../utils/movieDB";
+import { fetchSearch } from "../utils/movieDB";
 import { Loader } from "./Loader";
 import { Teasers } from "./Teasers";
+import { Pagination } from "./Pagination";
 
 const Home = () => {
   const [queryValue, setQueryValue] = useState("");
   const [loading, setLoading] = useState(false);
-  const [results, setResults] = useState([]);
+  const [requestMade, setRequestMade] = useState(false);
+  const [requestData, setResults] = useState({
+    results: [],
+    pageNumber: 1,
+    totalPages: 1
+  });
 
   function handleSetQueryValue(e) {
     setQueryValue(e.target.value);
   }
 
-  async function handleSubmitQuery(e) {
+  function handleSubmitQuery(e) {
     e.preventDefault();
+    submitQuery(requestData.pageNumber);
+  }
+
+  function handlePageClick(pageNumber) {
+    // window.scrollTo({
+    //   top: 0,
+    //   behavior: "smooth"
+    // });
+    submitQuery(pageNumber);
+  }
+
+  async function submitQuery(pageNumber) {
     setLoading(true);
-    const fetchedResults = await startSearch(queryValue);
+    setRequestMade(true);
+    const fetchedResults = await fetchSearch(queryValue, pageNumber);
     setLoading(false);
     setResults(fetchedResults);
   }
@@ -32,8 +51,15 @@ const Home = () => {
           <button>Search</button>
         </form>
       </div>
-      {loading ? <Loader /> : undefined}
-      <Teasers results={results} />
+      {loading && <Loader />}
+      {!loading && <Teasers results={requestData.results} />}
+      {requestMade && (
+        <Pagination
+          currentPageNumber={requestData.pageNumber}
+          totalPages={requestData.totalPages}
+          handlePageClick={handlePageClick}
+        />
+      )}
     </div>
   );
 };

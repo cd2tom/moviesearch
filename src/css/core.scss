@@ -4,6 +4,7 @@ $colorGrey: rgb(164, 163, 170);
 $colorBlue: #3498db;
 $colorSkyBlue: #c9e9ff;
 $colorTranslucentBlack: rgba(0, 0, 0, 0.42);
+$colorWhite: #fff;
 $lineHeight: 1.6;
 $paddingBase: 32px;
 $paddingSmall: 16px;
@@ -82,6 +83,7 @@ button,
 .teasers {
   text-align: center;
   padding: $paddingBase;
+  margin-bottom: -$paddingSmall;
 }
 
 .teaser {
@@ -127,5 +129,25 @@ button,
     &:hover {
       transform: translateY(0);
     }
+  }
+}
+
+.pagination {
+  text-align: center;
+  padding: 0 $paddingBase $paddingBase;
+
+  &__link {
+    padding: $paddingXSmall;
+    font-weight: bold;
+    cursor: pointer;
+    transition: $transitionSpeed;
+    color: white;
+  }
+
+  &__link--active,
+  &__link:hover {
+    background-color: $colorWhite;
+    color: $colorBlue;
+    transform: translateY(-1px);
   }
 }
