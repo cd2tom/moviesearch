@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { fetchSearch } from "../utils/movieDB";
-import { Loader } from "./Loader";
-import { Teasers } from "./Teasers";
-import { Pagination } from "./Pagination";
-import { Modal } from "./Modal";
+import Teasers from "./Teasers";
+import Pagination from "./Pagination";
+import Modal from "./Modal";
 
-const Home = () => {
+export default function Home() {
   const [queryValue, setQueryValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [modalResult, setModalResult] = useState(undefined);
@@ -61,7 +60,7 @@ const Home = () => {
           <button>Search</button>
         </form>
       </div>
-      {loading && <Loader />}
+      {loading && <div className="loader" />}
       {!loading && (
         <Teasers
           results={requestData.results}
@@ -78,6 +77,4 @@ const Home = () => {
       <Modal result={modalResult} setModalResult={setModalResult} />
     </div>
   );
-};
-
-export { Home };
+}

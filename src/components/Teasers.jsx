@@ -1,7 +1,7 @@
 import React from "react";
 import { generateBgUrl, getMovie } from "../utils/movieDB";
 
-const Teasers = ({ results, setModalResult }) => {
+export default function Teasers({ results, setModalResult }) {
   function handleSetModalResult(id) {
     getMovie(id).then(result => {
       if (result) {
@@ -44,6 +44,4 @@ const Teasers = ({ results, setModalResult }) => {
       })}
     </div>
   );
-};
-
-export { Teasers };
+}

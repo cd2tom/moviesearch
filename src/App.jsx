@@ -1,13 +1,13 @@
 import React from "react";
 
-import { AppPack } from "./AppPack";
+import Home from "./components/Home";
 import "./css/normalize.scss";
 import "./css/core.scss";
 
-const App = () => (
-  <div className="main">
-    <AppPack />
-  </div>
-);
-
-export { App };
+export default function App() {
+  return (
+    <div className="main">
+      <Home />
+    </div>
+  );
+}

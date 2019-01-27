@@ -1,7 +1,7 @@
 import React from "react";
 import { generateBgUrl, getMovie } from "../utils/movieDB";
 
-const Modal = ({ result, setModalResult }) => {
+export default function Modal({ result, setModalResult }) {
   function handleClearModalResult() {
     setModalResult(undefined);
   }
@@ -36,6 +36,4 @@ const Modal = ({ result, setModalResult }) => {
       </article>
     </div>
   );
-};
-
-export { Modal };
+}
