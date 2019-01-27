@@ -2,11 +2,12 @@ import React from "react";
 import { generateBgUrl, getMovie } from "../utils/movieDB";
 
 const Teasers = ({ results, setModalResult }) => {
-  async function handleSetModalResult(id) {
-    const result = await getMovie(id);
-    if (result) {
-      setModalResult(result);
-    }
+  function handleSetModalResult(id) {
+    getMovie(id).then(result => {
+      if (result) {
+        setModalResult(result);
+      }
+    });
   }
 
   return (

@@ -38,14 +38,15 @@ const Home = () => {
     submitQuery(pageNumber);
   }
 
-  async function submitQuery(pageNumber) {
+  function submitQuery(pageNumber) {
     if (!queryValue) return;
 
     setLoading(true);
-    const fetchedResults = await fetchSearch(queryValue, pageNumber);
-    setRequestMade(true);
-    setLoading(false);
-    setResults(fetchedResults);
+    fetchSearch(queryValue, pageNumber).then(fetchedResults => {
+      setLoading(false);
+      setRequestMade(true);
+      if (fetchedResults) setResults(fetchedResults);
+    });
   }
 
   return (
@@ -67,14 +68,13 @@ const Home = () => {
           setModalResult={setModalResult}
         />
       )}
-      {requestMade &&
-        requestData.results.length > 0 && (
-          <Pagination
-            currentPageNumber={requestData.pageNumber}
-            totalPages={requestData.totalPages}
-            handlePageClick={handlePageClick}
-          />
-        )}
+      {requestMade && requestData.results.length > 0 && (
+        <Pagination
+          currentPageNumber={requestData.pageNumber}
+          totalPages={requestData.totalPages}
+          handlePageClick={handlePageClick}
+        />
+      )}
       <Modal result={modalResult} setModalResult={setModalResult} />
     </div>
   );
