@@ -1,4 +1,4 @@
-const APIKEY = require("../config/application.yml").KEY;
+const APIKEY = process.env.KEY;
 const APIPATH = "https://api.themoviedb.org/3";
 
 export async function fetchSearch(queryValue, pageNumber) {
