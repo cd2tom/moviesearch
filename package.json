@@ -1,13 +1,13 @@
 {
   "name": "MovieSearch",
   "version": "1.0.0",
-  "repository": "https://github.com/t0m201/MovieSearch.git",
-  "author": "tom.finney25@googlemail.com <tom.finney25@googlemail.com>",
+  "repository": "https://github.com/cd2tom/moviesearch.git",
+  "author": "tomfinney25@gmail.com <tomfinney25@gmail.com>",
   "license": "MIT",
   "scripts": {
     "dev": "parcel src/index.html",
-    "start": "serve",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/index.html",
+    "now-build": "parcel build src/index.html"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-0",

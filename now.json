@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "name": "mobie searcher",
+  "builds": [{ "src": "package.json", "use": "@now/static-build" }],
+  "routes": [
+    { "src": "/(.+)(png|md|svg|css|map|jpg|js|txt)", "dest": "/$1$2" },
+    { "src": "/.*", "dest": "/index.html" }
+  ],
+  "env": {
+    "KEY": "@moviedb_key"
+  }
+}
